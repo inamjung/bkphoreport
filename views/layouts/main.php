@@ -37,7 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'รายงานCKD', 'url' => ['/report/ckd/gfrlowbyamp']],
-            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'ทะเบียนDM', 'url' => ['/report/dm/dmregbyamp']],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

@@ -26,57 +26,104 @@ echo \kartik\grid\GridView::widget([
     ],
     'panel' => [
         'heading' => 'CKD_GFR ต่ำ แยกตามอำเภอ',
-//        'heading' => 'โปรแกรม : ' . $datas[0]['proname'],
-//        'before' => 'ระดับความรุนแรง : ' . $datas[0]['levels'],
         'type' => \kartik\grid\GridView::TYPE_PRIMARY,
-    //'after' => 'พัฒนาโดย ' . $dev
     ],
     'columns' => [
         ['class' => 'kartik\grid\SerialColumn'],
         [
-            'attribute' => 'ampurcode',
+            'attribute' => 'u_code',
             'label' => 'AMPURCODE',
             'format' => 'raw',
             'value' => function($model) {
-                return Html::a(Html::encode($model['ampurcode']), [
+                return Html::a(Html::encode($model['u_code']), [
                             'ckd/indivgfrlowbytam/',
-                            'ampurcode' => $model['ampurcode'],
+                            'ampurcode' => $model['u_code'],
                 ]);
             },
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-center'],
                 ],
-                [
-                    'attribute' => 'c_ampurname',
-                    'label' => 'HOSPNAME',
+                    [
+                    'attribute' => 'u_name',
+                    'label' => 'u_name',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
                 [
-                    'class' => 'kartik\grid\DataColumn',
-                    'pageSummary' => true,
-                    'attribute' => 'cc', 
+                    'attribute' => 'y_proc',
+                    'label' => 'y_proc',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                [
+                    'attribute' => 'm_proc',
+                    'label' => 'm_proc',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                
+                 [
+                    'attribute' => 'A',
                     'format' => 'integer',
-                    'label' => 'เป้า(คน)',
+                    'label' => 'A',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                [
+                    'attribute' => 'B',
+                    'format' => 'integer',
+                    'label' => 'B',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                    [
+                    'class' => 'kartik\grid\DataColumn',
+                   // 'pageSummary' => true,
+                    'attribute' => 'rate',
+                    'format' => 'integer',
+                    'label' => 'ร้อยละ( B/A)*100',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-center'],
                 ],
                     [
-                    'class' => 'kartik\grid\DataColumn',
-                    'pageSummary' => true,
-                    'attribute' => 'ct', 
-                    'format' => 'integer',
-                    'label' => 'ผลงาน(คน)',
+                    'attribute' => 'stage1',
+                    'label' => 'stage1',
                     'headerOptions' => ['class' => 'text-center'],
-                    'contentOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
                 ],
+                     [
+                    'attribute' => 'stage2',
+                    'label' => 'stage2',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                     [
+                    'attribute' => 'stage3',
+                    'label' => 'stage3',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                     [
+                    'attribute' => 'stage4',
+                    'label' => 'stage4',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                     [
+                    'attribute' => 'stage5',
+                    'label' => 'stage5',
+                    'headerOptions' => ['class' => 'text-center'],
+                    'contentOptions' => ['class' => 'text-left'],
+                ],
+                
+                
             ]
         ]);
         ?>
 
         <?php
 
-$script = <<< JS
+        $script = <<< JS
 $(function(){
     $("label[title='Show all data']").hide();
 });
@@ -86,36 +133,5 @@ $('#btn_sql').on('click', function(e) {
    $('#sql').toggle();
 });
 JS;
- $this->registerJs($script);
- ?>
-
-<?php echo Highcharts::widget([
-    'options'=>[        
-        'title'=>['text'=>'CKD_GFR ต่ำ แยกตามอำเภอ'],
-        'xAxis'=>[
-            'categories'=>$c_ampurname
-        ],
-        'yAxis'=>[
-            'title'=>['text'=>'จำนวน(คน)']
-        ],
-        'series'=>[
-            [
-                'type'=>'column',
-                'name'=>'เป้าหมาย',
-                'data'=>$cc,
-                'dataLabels'=>[
-                    'enabled'=>true,
-                ]
-            ],
-            [
-                'type'=>'column',
-                'name'=>'ผลงาน',
-                'data'=>$ct,
-                'dataLabels'=>[
-                    'enabled'=>true,
-                ]
-            ],
-            
-        ]
-    ]
-]);?>
+        $this->registerJs($script);
+        ?>

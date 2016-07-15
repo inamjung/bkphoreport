@@ -16,7 +16,6 @@ $datas = $dataProvider->getModels();
 
 <?php
 if (isset($dataProvider))
-//$dev = \yii\helpers\Html::a('คุณไอน้ำ เรืองโพน', 'https://fb.com/inam06', ['target' => '_blank']);
     echo \kartik\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
@@ -35,14 +34,14 @@ if (isset($dataProvider))
         'columns' => [
             ['class' => 'kartik\grid\SerialColumn'],
             [
-                'attribute' => 'villagecodefull',
-                'label' => 'villagecodefull',
+                'attribute' => 'NAME',
+                'label' => 'NAME',
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
             ],
             [
-                'attribute' => 'villagename',
-                'label' => 'villagename',
+                'attribute' => 'LNAME',
+                'label' => 'LNAME',
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
             ],
@@ -53,14 +52,14 @@ if (isset($dataProvider))
                 'contentOptions' => ['class' => 'text-left'],
             ],
             [
-                'attribute' => 'qof58_gfr',
-                'label' => 'qof58_gfr',
+                'attribute' => 'gfr58_gfr',
+                'label' => 'gfr58_gfr',
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
             ],
             [
-                'attribute' => 'qof59_gfr',
-                'label' => 'qof59_gfr',
+                'attribute' => 'gfr59_gfr',
+                'label' => 'gfr59_gfr',
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
             ],
@@ -70,7 +69,18 @@ if (isset($dataProvider))
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-center'],
             ],
-            
+            [
+                'attribute' => 'gfr59_stage',
+                'label' => 'gfr59_stage',
+                'headerOptions' => ['class' => 'text-center'],
+                'contentOptions' => ['class' => 'text-left'],
+            ],
+            [
+                'attribute' => 'gfr59_substage',
+                'label' => 'gfr59_substage',
+                'headerOptions' => ['class' => 'text-center'],
+                'contentOptions' => ['class' => 'text-center'],
+            ],
         ]
     ]);
 ?>
