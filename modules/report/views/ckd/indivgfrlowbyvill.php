@@ -49,12 +49,7 @@ if (isset($dataProvider))
                 ],
             
             
-            [
-                'attribute' => 'villagecodefull',
-                'label' => 'VILLAGECODEFULL',
-                'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-left'],
-            ],
+           
             [
                 'attribute' => 'villagename',
                 'label' => 'VILLAGENAME',

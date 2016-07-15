@@ -3,11 +3,11 @@
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use miloschuman\highcharts\Highcharts;
 
 $this->params['breadcrumbs'][] = '';
 $datas = $dataProvider->getModels();
 ?>
-
 
 <?php
 
@@ -76,7 +76,7 @@ echo \kartik\grid\GridView::widget([
 
         <?php
 
-        $script = <<< JS
+$script = <<< JS
 $(function(){
     $("label[title='Show all data']").hide();
 });
@@ -86,5 +86,36 @@ $('#btn_sql').on('click', function(e) {
    $('#sql').toggle();
 });
 JS;
-        $this->registerJs($script);
-        ?>
+ $this->registerJs($script);
+ ?>
+
+<?php echo Highcharts::widget([
+    'options'=>[        
+        'title'=>['text'=>'CKD_GFR ต่ำ แยกตามอำเภอ'],
+        'xAxis'=>[
+            'categories'=>$c_ampurname
+        ],
+        'yAxis'=>[
+            'title'=>['text'=>'จำนวน(คน)']
+        ],
+        'series'=>[
+            [
+                'type'=>'column',
+                'name'=>'เป้าหมาย',
+                'data'=>$cc,
+                'dataLabels'=>[
+                    'enabled'=>true,
+                ]
+            ],
+            [
+                'type'=>'column',
+                'name'=>'ผลงาน',
+                'data'=>$ct,
+                'dataLabels'=>[
+                    'enabled'=>true,
+                ]
+            ],
+            
+        ]
+    ]
+]);?>

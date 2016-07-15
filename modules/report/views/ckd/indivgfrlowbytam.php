@@ -59,12 +59,7 @@ if (isset($dataProvider))
 //                'headerOptions' => ['class' => 'text-center'],
 //                'contentOptions' => ['class' => 'text-left'],
 //            ],
-            [
-                'attribute' => 'tamboncode',
-                'label' => 'TAMBONCODE',
-                'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-left'],
-            ],
+            
             [
                 'attribute' => 'c_tambonname',
                 'label' => 'TAMBONNAME',
