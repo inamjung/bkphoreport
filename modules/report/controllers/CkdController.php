@@ -62,7 +62,7 @@ class CkdController extends controller {
                 ,tv.c_ampurname AS u_name
                 ,SUM(s.A) AS A
                 ,SUM(s.B) AS B
-                ,(s.B/s.A)*100 AS rate
+                ,(SUM(s.B)/SUM(s.A))*100 AS rate
                 ,SUM(s.stage1) AS stage1
                 ,SUM(s.stage2) AS stage2
                 ,SUM(s.stage3) AS stage3
@@ -102,7 +102,7 @@ class CkdController extends controller {
                 ,tv.c_tambonname AS u_name
                 ,SUM(s.A) AS A
                 ,SUM(s.B) AS B
-                ,(s.B/s.A)*100 AS rate
+                ,(SUM(s.B)/SUM(s.A))*100 AS rate
                 ,SUM(s.stage1) AS stage1
                 ,SUM(s.stage2) AS stage2
                 ,SUM(s.stage3) AS stage3

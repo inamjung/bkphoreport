@@ -43,7 +43,7 @@ echo \kartik\grid\GridView::widget([
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-center'],
                 ],
-                    [
+                [
                     'attribute' => 'u_name',
                     'label' => 'u_name',
                     'headerOptions' => ['class' => 'text-center'],
@@ -61,11 +61,11 @@ echo \kartik\grid\GridView::widget([
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                
-                 [
+                [
                     'attribute' => 'A',
                     'format' => 'integer',
                     'label' => 'A',
+                    'pageSummary' => true,
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
@@ -73,50 +73,59 @@ echo \kartik\grid\GridView::widget([
                     'attribute' => 'B',
                     'format' => 'integer',
                     'label' => 'B',
+                    'pageSummary' => true,
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                    [
+                [
                     'class' => 'kartik\grid\DataColumn',
-                   // 'pageSummary' => true,
+                    //'pageSummary' => true,
                     'attribute' => 'rate',
-                    'format' => 'integer',
+                    'format' => ['decimal', 2],
                     'label' => 'ร้อยละ( B/A)*100',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-center'],
                 ],
-                    [
+                [
                     'attribute' => 'stage1',
                     'label' => 'stage1',
+                    'pageSummary' => true,
+                    'format' => 'integer',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                     [
+                [
                     'attribute' => 'stage2',
                     'label' => 'stage2',
+                    'pageSummary' => true,
+                    'format' => 'integer',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                     [
+                [
                     'attribute' => 'stage3',
                     'label' => 'stage3',
+                    'pageSummary' => true,
+                    'format' => 'integer',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                     [
+                [
                     'attribute' => 'stage4',
                     'label' => 'stage4',
+                    'pageSummary' => true,
+                    'format' => 'integer',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                     [
+                [
                     'attribute' => 'stage5',
                     'label' => 'stage5',
+                    'pageSummary' => true,
+                    'format' => 'integer',
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
                 ],
-                
-                
             ]
         ]);
         ?>
